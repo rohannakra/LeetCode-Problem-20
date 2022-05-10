@@ -53,3 +53,5 @@ class Solution:
         if len(lst) != 0:
             return False
         return True
+
+# NOTE: this passes 87/91 tests
