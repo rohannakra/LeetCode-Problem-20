@@ -10,24 +10,23 @@ def is_valid(string):
             elif lst[0] == "{":
                 opposite = "}"
             else:
-                return False
+                return False    # There is an open character without a closed in front of it.
+            # Remove the pair of closed and open characters characters
             lst.remove(lst[0])
             try:
                 lst.remove(opposite)
-            except ValueError:    # Couldn't find match
+            except ValueError:    # Couldn't find match... example (test case #2)
                 return False
     except TypeError:    # This means that there is an uneven amount of open and closed characters... invalid.
         return False
-    if len(lst) != 0:
-        return False
-    return True
+    return False if len(lst) != 0 else True
 
-print(is_valid("()"))
-print(is_valid("(]"))
-print(is_valid('((((()))))'))
-print(is_valid("()[]{}"))
+print(is_valid("()"))    # True
+print(is_valid("(]"))    # False
+print(is_valid('((((()))))'))    # True
+print(is_valid("()[]{}"))    # True
 
-# ---- Accepted LeetCode Solution ----
+# ---- LeetCode Solution ----
 
 class Solution:
     def isValid(self, s: str) -> bool:
