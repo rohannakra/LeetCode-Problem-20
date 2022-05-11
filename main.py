@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/valid-parentheses/
+
 def is_valid(string):
     lst = [char for char in string]
     opposite = ""
